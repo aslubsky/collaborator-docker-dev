@@ -18,4 +18,4 @@ RUN rm -rf /usr/share/doc/* /usr/share/man/?? /usr/share/man/??_* /usr/share/loc
 
 WORKDIR /var/www/els
 
-CMD ["php", "-S", "0.0.0.0:8080"]
+CMD ["php", "-S", "0.0.0.0:8080", "index.php"]
