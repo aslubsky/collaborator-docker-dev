@@ -5,6 +5,9 @@ RUN apt-get update
 RUN apt-get install -y \
     mysql-client
 
+RUN wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-5.phar
+RUN chmod +x /usr/bin/phpunit
+
 #
 # Remove the packages that are no longer required after the package has been installed
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -q -y
