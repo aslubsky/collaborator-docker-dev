@@ -8,6 +8,10 @@ RUN apt-get install -y \
 RUN wget -O /usr/bin/phpunit https://phar.phpunit.de/phpunit-5.phar
 RUN chmod +x /usr/bin/phpunit
 
+RUN sed -i "s|post_max_size = 8M|post_max_size = 800M|g" /etc/php/7.1/cli/php.ini
+RUN sed -i "s|upload_max_filesize = 2M|upload_max_filesize = 800M|g" /etc/php/7.1/cli/php.ini
+RUN sed -i "s|max_execution_time = 30|max_execution_time = 30000|g" /etc/php/7.1/cli/php.ini
+
 #
 # Remove the packages that are no longer required after the package has been installed
 RUN DEBIAN_FRONTEND=noninteractive apt-get autoremove --purge -q -y
